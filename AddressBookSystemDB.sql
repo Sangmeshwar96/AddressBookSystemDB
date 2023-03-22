@@ -28,5 +28,10 @@ Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,E
 ('Nagesh', 'Nawade', 'Nanded', 'Nanded', 'MH', '413256', '8529637894', 'Nageshn@gmail.com')
 Select * From AddressBook;
 
-
+--UC4
+--Editing/Updating Existing Record
+Update AddressBook Set Address='Deoni' Where FirstName='Pramod'
+Update AddressBook Set City='Nanded' Where FirstName='Nagesh'
+Update AddressBook Set Zip='412563' Where FirstName='Apurva'
+Update AddressBook Set Email='shubhamD@gmail.com' Where FirstName='Shubham'
 
