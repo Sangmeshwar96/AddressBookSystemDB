@@ -77,3 +77,9 @@ SELECT * FROM AddressBook;
 --UC10
 --Count contacts by contact type
 SELECT AddressBookType, COUNT(AddressBookType) AS NoOfContactPresent FROM AddressBook GROUP BY AddressBookType;
+
+--UC11
+--Adding contact to both Friend and Family
+INSERT INTO AddressBook VALUES
+('Bharat','Singh','Sikh Street','Amritsar','Punjab','478985','9856985696','bharrat@gmail.com','Professional','Office'),
+('Pranita','Sontakke','Shivaji Nagar','Pune','MH','477485','8956237485','pranitacs@gmail.com','Family','Home')
