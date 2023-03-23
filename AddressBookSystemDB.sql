@@ -34,4 +34,8 @@ Update AddressBook Set Address='Deoni' Where FirstName='Pramod'
 Update AddressBook Set City='Nanded' Where FirstName='Nagesh'
 Update AddressBook Set Zip='412563' Where FirstName='Apurva'
 Update AddressBook Set Email='shubhamD@gmail.com' Where FirstName='Shubham'
+Update AddressBook Set Email='basweshwar@gmail.com' Where FirstName='Basweshwar'
 
+--UC5
+--Deleting Existing Record From AddressBook Table
+Delete from AddressBook Where FirstName='Nagesh';
