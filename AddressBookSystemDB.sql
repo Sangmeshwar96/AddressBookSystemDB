@@ -33,7 +33,7 @@ Select * From AddressBook;
 Update AddressBook Set Address='Deoni' Where FirstName='Pramod'
 Update AddressBook Set City='Nanded' Where FirstName='Nagesh'
 Update AddressBook Set Zip='412563' Where FirstName='Apurva'
-Update AddressBook Set Email='shubhamD@gmail.com' Where FirstName='Shubham'
+Update AddressBook Set Email='shubhamD@gmail.com' Where FirstName='Shubham';
 
 --UC5
 --Deleting Existing Record From AddressBook Table
@@ -41,10 +41,14 @@ Delete from AddressBook Where FirstName='Nagesh';
 
 -- UC6 
 --Retrive By City or State
-SELECT * FROM AddressBook WHERE City = 'Latur'
-SELECT * FROM AddressBook WHERE State = 'MH'
+SELECT * FROM AddressBook WHERE City = 'Latur';
+SELECT * FROM AddressBook WHERE State = 'MH';
 
 --UC7
 --Size Of AddressBook By City
 Select Count(City) as 'NumberOfContacts' from AddressBook Where City='Latur' Group by City;
 Select Count(State) as 'NumberOfContacts' from AddressBook Where State='MH' Group by State;
+
+--UC8
+--ASC for Ascending order And DESC for Descending order 
+Select * From AddressBook Where City='Latur' Order by FirstName ASC;
