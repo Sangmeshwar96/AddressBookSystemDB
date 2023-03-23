@@ -1,11 +1,11 @@
 --UC1
 --Create DataBase AddressBookSystem
-Create Database AddressBookSystem;
-Use AddressBookSystem;
+CREATE Database AddressBookSystem;
+USE AddressBookSystem;
 
 --UC2
 --Create Table In AddressBookSystem DataBase
-Create Table AddressBook(
+CREATE TABLE AddressBook(
 ContactId int identity(1,1) Primary Key,
 FirstName varchar(20) not null,
 LastName varchar(20) not null,
@@ -16,28 +16,30 @@ Zip bigint not null ,
 PhoneNumber bigint not null,
 Email varchar(50)not null
 )
-Select * From AddressBook;
+SELECT * FROM AddressBook;
 
 --UC3
 --Inserting Data Into AddressBook Table
-Insert into AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) values
+INSERT INTO AddressBook (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) VALUES
 ('Sangmeshwar', 'Patil', 'Udgir', 'Latur', 'MH', '413519', '8956231245', 'sangmeshwar@gmail.com'),
 ('Pramod', 'Pawar', 'Ausa', 'Latur', 'MH', '413518', '2222222222', 'pramod@gmail.com'),
 ('Apurva', 'Shinde', 'Kharadi', 'Pune', 'MH', '413517', '5623897425', 'Apurva@gmail.com'),
 ('Shubham', 'Deshpande', 'Nilanga', 'Akola', 'MH', '496895', '888888888', 'Shubhamd@gmail.com'),
-('Nagesh', 'Nawade', 'Nanded', 'Nanded', 'MH', '413256', '8529637894', 'Nageshn@gmail.com')
-Select * From AddressBook;
+('Nagesh', 'Nawade', 'Nanded', 'Nanded', 'MH', '413256', '8529637894', 'Nageshn@gmail.com'),
+('Rahul', 'Yadav', 'Noida', 'Noida', 'UP', '569321', '8956451236', 'rahul@gmail.com'),
+('Omkar', 'Lasune', 'Panaji', 'Goa', 'Goa', '859632', '8529638956', 'omkar@gmail.com')
+SELECT * FROM AddressBook;
 
 --UC4
 --Editing/Updating Existing Record
-Update AddressBook Set Address='Deoni' Where FirstName='Pramod'
-Update AddressBook Set City='Nanded' Where FirstName='Nagesh'
-Update AddressBook Set Zip='412563' Where FirstName='Apurva'
-Update AddressBook Set Email='shubhamD@gmail.com' Where FirstName='Shubham';
+UPDATE AddressBook SET Address='Deoni' WHERE FirstName='Pramod'
+UPDATE AddressBook SET City='Nanded' WHERE FirstName='Nagesh'
+UPDATE AddressBook SET Zip='412563' WHERE FirstName='Apurva'
+UPDATE AddressBook SET Email='shubhamD@gmail.com' WHERE FirstName='Shubham';
 
 --UC5
 --Deleting Existing Record From AddressBook Table
-Delete from AddressBook Where FirstName='Nagesh';
+DELETE FROM AddressBook WHERE FirstName='Nagesh';
 
 -- UC6 
 --Retrive By City or State
@@ -46,9 +48,28 @@ SELECT * FROM AddressBook WHERE State = 'MH';
 
 --UC7
 --Size Of AddressBook By City
-Select Count(City) as 'NumberOfContacts' from AddressBook Where City='Latur' Group by City;
-Select Count(State) as 'NumberOfContacts' from AddressBook Where State='MH' Group by State;
+SELECT COUNT(City) AS 'NumberOfContacts' FROM AddressBook WHERE City='Latur' GROUP BY City;
+SELECT COUNT(State) AS 'NumberOfContacts' FROM AddressBook WHERE State='MH' GROUP BY State;
+
+SELECT COUNT(*) AS CityCount,City FROM AddressBook GROUP BY City;
 
 --UC8
 --ASC for Ascending order And DESC for Descending order 
-Select * From AddressBook Where City='Latur' Order by FirstName ASC;
+SELECT * FROM AddressBook WHERE City='Latur' ORDER BY FirstName;
+SELECT * FROM AddressBook WHERE City='Latur' ORDER BY FirstName ASC;
+
+--UC9
+--Alter Address Book to add AddressBookName and AddressBookType
+ALTER TABLE AddressBook ADD AddressBookType VARCHAR(50);
+ALTER TABLE AddressBook ADD AddressBookName VARCHAR(50);
+SELECT * FROM AddressBook;
+
+--Update Contacts for AddressBookType
+UPDATE AddressBook SET AddressBookType ='Friends' WHERE FirstName IN ('Sangmeshwar', 'Pramod');
+UPDATE AddressBook SET AddressBookType ='Family' WHERE FirstName IN ('Apurva','Shubham');
+UPDATE AddressBook SET AddressBookType ='Professional' WHERE FirstName IN ('Omkar','Rahul');
+
+--Update Contacts for AddressBookName
+UPDATE AddressBook SET  AddressBookName ='Office' WHERE FirstName IN ('Omkar', 'Rahul', 'Nagesh', 'Shubham');
+UPDATE AddressBook SET  AddressBookName ='Home' WHERE FirstName IN ('Sangmeshwar','Pramod','Apurva');
+SELECT * FROM AddressBook;
