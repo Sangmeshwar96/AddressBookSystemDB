@@ -42,4 +42,9 @@ Delete from AddressBook Where FirstName='Nagesh';
 -- UC6 
 --Retrive By City or State
 SELECT * FROM AddressBook WHERE City = 'Latur'
-SELECT * FROM AddressBook WHERE State = 'Maharastra'
+SELECT * FROM AddressBook WHERE State = 'MH'
+
+--UC7
+--Size Of AddressBook By City
+Select Count(City) as 'NumberOfContacts' from AddressBook Where City='Latur' Group by City;
+Select Count(State) as 'NumberOfContacts' from AddressBook Where State='MH' Group by State;
