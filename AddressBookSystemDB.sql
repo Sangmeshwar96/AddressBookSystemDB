@@ -73,3 +73,7 @@ UPDATE AddressBook SET AddressBookType ='Professional' WHERE FirstName IN ('Omka
 UPDATE AddressBook SET  AddressBookName ='Office' WHERE FirstName IN ('Omkar', 'Rahul', 'Nagesh', 'Shubham');
 UPDATE AddressBook SET  AddressBookName ='Home' WHERE FirstName IN ('Sangmeshwar','Pramod','Apurva');
 SELECT * FROM AddressBook;
+
+--UC10
+--Count contacts by contact type
+SELECT AddressBookType, COUNT(AddressBookType) AS NoOfContactPresent FROM AddressBook GROUP BY AddressBookType;
